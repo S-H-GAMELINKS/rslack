@@ -8,7 +8,10 @@ class MessagesController < ApplicationController
     def create
       @message = @channel.messages.create!(message_params)
   
-      redirect_to @channel
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to @channel }
+      end
     end
   
     private

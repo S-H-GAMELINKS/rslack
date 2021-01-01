@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= turbo_stream_from @channel %>
+
 <p>
   <strong>Title:</strong>
   <%= @channel.title %>
