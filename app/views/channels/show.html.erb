@@ -1,22 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%= turbo_frame_tag "channel" do %>
+  <p id="notice"><%= notice %></p>
 
-<%= turbo_stream_from @channel %>
+  <%= turbo_stream_from @channel %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @channel.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @channel.title %>
+  </p>
 
-<p>
-  <strong>About:</strong>
-  <%= @channel.about %>
-</p>
+  <p>
+    <strong>About:</strong>
+    <%= @channel.about %>
+  </p>
 
-<%= link_to 'Edit', edit_channel_path(@channel) %> |
-<%= link_to 'Back', channels_path %>
+  <%= link_to 'Edit', edit_channel_path(@channel) %> |
+  <%= link_to 'Back', channels_path %>
 
-<div id="messages">
-  <%= render @channel.messages %>
-</div>
+  <div id="messages">
+    <%= render @channel.messages %>
+  </div>
 
-<%= turbo_frame_tag "new_message", src: new_channel_message_path(@channel), target: "_top" %>
+  <%= turbo_frame_tag "new_message", src: new_channel_message_path(@channel), target: "_top" %>
+<% end %>
