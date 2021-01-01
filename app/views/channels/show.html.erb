@@ -17,4 +17,4 @@
   <%= render @channel.messages %>
 </div>
 
-<%= link_to "New Message", new_channel_message_path(@channel) %>
+<%= turbo_frame_tag "new_message", src: new_channel_message_path(@channel), target: "_top" %>
