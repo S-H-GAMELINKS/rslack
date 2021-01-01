@@ -12,3 +12,9 @@
 
 <%= link_to 'Edit', edit_channel_path(@channel) %> |
 <%= link_to 'Back', channels_path %>
+
+<div id="messages">
+  <%= render @channel.messages %>
+</div>
+
+<%= link_to "New Message", new_channel_message_path(@channel) %>
