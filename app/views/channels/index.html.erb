@@ -4,11 +4,16 @@
 
 <%= turbo_stream_from :channels %>
 
-<%= turbo_frame_tag "channels" do %>
-  <%= render @channels %>
-<% end %>
+<div class="row">
+  <div class="col-2">
+    <%= link_to 'New Channel', new_channel_path, "data-turbo-frame": "channel" %>
+    <%= turbo_frame_tag "channels" do %>
+      <%= render @channels %>
+    <% end %>
+  </div>
 
-<%= turbo_frame_tag "channel" do %>
-<% end %>
-
-<%= link_to 'New Channel', new_channel_path, "data-turbo-frame": "channel" %>
+  <div class="col-10">
+    <%= turbo_frame_tag "channel" do %>
+    <% end %>
+  </div>
+</div>
